@@ -1,0 +1,30 @@
+{
+	"name": "maple-mono-cn",
+	"version": "1.0.0",
+	"description": "Process and distribute Maple Mono CN by NPM",
+	"main": "dist/font/result.css",
+	"scripts": {
+		"build": "vite-node ./src/font-split.ts",
+		"lint": "biome check",
+		"fmt": "biome check --write"
+	},
+	"keywords": [
+		"font",
+		"maple mono",
+		"chinese"
+	],
+	"author": "Zheng Junyi <zhengjunyi@live.com>",
+	"license": "MIT",
+	"files": [
+		"dist"
+	],
+	"devDependencies": {
+		"@tsconfig/strictest": "^2.0.8",
+		"@types/node": "^24.10.1",
+		"biome": "^0.3.3",
+		"cn-font-split": "^7.3.0",
+		"typescript": "^5.9.3",
+		"vite-node": "^5.2.0"
+	},
+	"packageManager": "pnpm@10.24.0"
+}
