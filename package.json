@@ -1,6 +1,6 @@
 {
-	"name": "maple-mono-cn",
-	"version": "1.0.0",
+	"name": "@mogeko/maple-mono-cn",
+	"version": "7.9.0",
 	"description": "Process and distribute Maple Mono CN by NPM",
 	"main": "dist/font/result.css",
 	"scripts": {
