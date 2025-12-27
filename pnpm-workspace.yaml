@@ -1,6 +1,0 @@
-onlyBuiltDependencies:
-  - cn-font-split
-  - core-js
-  - esbuild
-  - koffi
-  - protobufjs
