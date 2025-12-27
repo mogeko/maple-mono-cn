@@ -70,7 +70,7 @@ function App() {
 </style>
 ```
 
-### In HTML
+### HTML
 
 Add the link tag to your HTML:
 
