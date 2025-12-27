@@ -2,19 +2,22 @@ name: Build
 
 on:
   push:
-    branches: [master]
   workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.0
-      - uses: pnpm/action-setup@v4.2.0
-      - uses: actions/setup-node@v6.1.0
-        with:
-          node-version: lts/*
-          cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm biome ci
-      - run: pnpm run build
+      - uses: actions/checkout@v6.0.1
+      - uses: oven-sh/setup-bun@v2.0.2
+      - run: bun install
+      - run: bun biome ci
+      - run: bunx cn-font-split i x86_64-unknown-linux-gnu
+      - run: bun run build
+      - run: bun pm pack
+      - run: bunx npm publish ./*.tgz --provenance
+        if: github.ref_type == 'tag'
