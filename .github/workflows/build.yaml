@@ -14,14 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6.0.1
       - uses: oven-sh/setup-bun@v2.0.2
-      - run: bun install
+      - run: bun install --frozen-lockfile
       - run: bun biome ci
-      - run: bunx cn-font-split i x86_64-unknown-linux-gnu
+      - run: bunx cn-font-split i default
       - run: bun run build
-      - run: bun pm pack
       # Since Bun does not currently support publishing npm packages via OIDC;
-      # as a workaround, install Node.js to proceed with the publishing.
-      - uses: actions/setup-node@v6.1.0
-        if: github.ref_type == 'tag'
-      - run: npm publish ./*.tgz --provenance
+      # as a workaround, use NPM proceed with the publishing.
+      - run: bun npm publish --provenance
         if: github.ref_type == 'tag'
